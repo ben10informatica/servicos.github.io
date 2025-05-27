@@ -6,6 +6,7 @@ import {
   Stack,
   Snackbar,
   Alert,
+  createTheme
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
@@ -58,6 +59,18 @@ export default function ServiceOrder() {
       setActiveTab('veiculo');
       return;
     }
+
+    const color = createTheme({
+      palette: {
+        primary: {
+          main: 'green',
+        },
+        secondary: {
+          main: '#dc004e',
+        },
+      },
+    })
+    
     const newOrder = {
       id: Date.now(),
       clientInfo,
@@ -115,7 +128,7 @@ export default function ServiceOrder() {
 
   return (
     <Box maxWidth="1200px" mx="auto" bgcolor="background.paper" borderRadius={2} boxShadow={3} overflow="hidden">
-      <Box bgcolor="primary.main" color="primary.contrastText" px={4} py={3} display="flex" justifyContent="space-between" alignItems="center">
+      <Box bgcolor="warning.main" color="primary.contrastText" px={4} py={3} display="flex" justifyContent="space-between" alignItems="center">
         <Typography variant="h4" fontWeight="bold" letterSpacing={1}>
           Sistema de Ordens de Serviço
         </Typography>
